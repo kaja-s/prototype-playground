@@ -1,6 +1,6 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../../components/NavBar";
 
-export default function MainLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="mx-auto w-full max-w-2xl px-6 py-16">
       <NavBar />

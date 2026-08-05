@@ -4,9 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import NewPrototypeButton from "./NewPrototypeButton";
+import FlaskIcon from "../icons/FlaskIcon";
 
 const tabs = [
   { href: "/", label: "Prototypes" },
+  { href: "/templates", label: "Templates" },
   { href: "/design-system", label: "Design System" },
 ];
 
@@ -37,9 +39,7 @@ export default function NavBar() {
     <div>
       <div className="flex items-center justify-between gap-4">
         <h1 className="flex items-center gap-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">
-          <span aria-hidden className="-translate-y-px">
-            🧪
-          </span>
+          <FlaskIcon className="text-black" />
           Prototype Playground
         </h1>
         <NewPrototypeButton />

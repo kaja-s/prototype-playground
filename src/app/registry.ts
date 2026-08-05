@@ -8,8 +8,8 @@ export type Prototype = {
   href: string;
 };
 
-// Add your person folder here: create `app/<you>/prototypes.ts` exporting
-// a `prototypes` array (see app/kaja/prototypes.ts), then register it below.
+// Add your namespace here: create `src/app/<you>/prototypes.ts` exporting
+// a `prototypes` array (see src/app/kaja/prototypes.ts), then register it below.
 const authors = [{ author: "kaja", prototypes: kajaPrototypes }];
 
 export const allPrototypes: Prototype[] = authors.flatMap(({ author, prototypes }) =>

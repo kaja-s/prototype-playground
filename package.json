@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "bun run scripts/setup-local.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "create-prototype": "bun scripts/create-prototype.ts",
+    "setup-local": "bun run scripts/setup-local.ts"
   },
   "dependencies": {
     "next": "16.3.0",
