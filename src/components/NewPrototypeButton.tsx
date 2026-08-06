@@ -60,7 +60,7 @@ export default function NewPrototypeButton() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="flex items-center gap-1.5 rounded-full bg-gray-900 px-3.5 py-1.5 text-sm font-medium text-white transition-transform duration-150 ease-[var(--ease-out)] active:scale-[0.97] motion-reduce:transform-none dark:bg-gray-50 dark:text-gray-900"
+        className="flex items-center gap-1.5 rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground transition-transform duration-150 ease-[var(--ease-out)] active:scale-[0.97] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
           <path
@@ -81,50 +81,48 @@ export default function NewPrototypeButton() {
           />
           <form
             onSubmit={handleCreate}
-            className="relative w-full max-w-sm origin-center rounded-xl border border-gray-200 bg-white p-6 opacity-100 shadow-xl transition-[transform,opacity] duration-200 ease-[var(--ease-out)] starting:scale-95 starting:opacity-0 motion-reduce:transition-none dark:border-gray-800 dark:bg-gray-900"
+            className="relative w-full max-w-sm origin-center rounded-xl border border-border bg-popover p-6 text-popover-foreground opacity-100 shadow-xl transition-[transform,opacity] duration-200 ease-[var(--ease-out)] starting:scale-95 starting:opacity-0 motion-reduce:transition-none"
           >
-            <h2 className="text-base font-semibold text-gray-900 dark:text-gray-50">
+            <h2 className="text-base font-semibold text-foreground">
               New prototype
             </h2>
 
-            <label className="mt-4 block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label className="mt-4 block text-sm font-medium text-foreground">
               Name
               <input
                 ref={nameRef}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-900 outline-none transition-colors duration-150 focus:border-gray-900 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-50 dark:focus:border-gray-50"
+                className="mt-1 w-full rounded-md border border-input bg-transparent px-3 py-1.5 text-sm text-foreground outline-none transition-shadow duration-150 focus-visible:ring-2 focus-visible:ring-ring"
                 placeholder="Magic Dashboard"
               />
             </label>
 
-            <label className="mt-3 block text-sm font-medium text-gray-700 dark:text-gray-300">
+            <label className="mt-3 block text-sm font-medium text-foreground">
               Description
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 rows={3}
-                className="mt-1 w-full resize-none rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-900 outline-none transition-colors duration-150 focus:border-gray-900 dark:border-gray-700 dark:bg-gray-950 dark:text-gray-50 dark:focus:border-gray-50"
+                className="mt-1 w-full resize-none rounded-md border border-input bg-transparent px-3 py-1.5 text-sm text-foreground outline-none transition-shadow duration-150 focus-visible:ring-2 focus-visible:ring-ring"
                 placeholder="What is this prototype exploring?"
               />
             </label>
 
-            {error && (
-              <p className="mt-3 text-sm text-red-500 dark:text-red-400">{error}</p>
-            )}
+            {error && <p className="mt-3 text-sm text-destructive">{error}</p>}
 
             <div className="mt-5 flex justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-full px-3.5 py-1.5 text-sm font-medium text-gray-500 transition-colors duration-150 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                className="rounded-full px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors duration-150 ease-[var(--ease-out)] hover:text-foreground active:scale-[0.97] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={submitting}
-                className="rounded-full bg-gray-900 px-3.5 py-1.5 text-sm font-medium text-white transition-transform duration-150 ease-[var(--ease-out)] active:scale-[0.97] disabled:opacity-50 motion-reduce:transform-none dark:bg-gray-50 dark:text-gray-900"
+                className="rounded-full bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground transition-transform duration-150 ease-[var(--ease-out)] active:scale-[0.97] disabled:opacity-50 motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               >
                 {submitting ? "Creating…" : "Create"}
               </button>

@@ -1,0 +1,99 @@
+/*
+ * Design tokens imported from the codeplain design system (cds) Figma file's
+ * `Theme` variable collection — keep in sync with Figma if that collection changes.
+ */
+
+:root {
+  --background: #fcfbf8;
+  --foreground: #0f0f0f;
+  --card: #fcfbf8;
+  --card-foreground: #0f0f0f;
+  --popover: #ffffff;
+  --popover-foreground: #0f0f0f;
+  --primary: #e0ff6e;
+  --primary-foreground: #0f0f0f;
+  --primary-hover: #b4cc58;
+  --secondary: #f7f4ed;
+  --secondary-foreground: #0f0f0f;
+  --muted: #f7f4ed;
+  --muted-foreground: #666666;
+  --accent: #e0ff6e;
+  --accent-foreground: #0f0f0f;
+  --destructive: #d00505;
+  --destructive-foreground: #ffffff;
+  --destructive-hover: #a00404;
+  --border: #eceae4;
+  --input: #eceae4;
+  --ring: #e0ff6e;
+  --error: #d00505;
+  --error-foreground: #d00505;
+  --error-background: #fef2f2;
+  --error-border: #fca5a5;
+  --warning: #78350f;
+  --warning-foreground: #78350f;
+  --warning-background: #fffbeb;
+  --warning-border: #fde68a;
+  --success: #0f0f0f;
+  --success-foreground: #0f0f0f;
+  --success-background: #f7f4ed;
+  --success-border: #eceae4;
+  --sidebar: #fcfbf8;
+  --sidebar-foreground: #666666;
+  --sidebar-primary: #e0ff6e;
+  --sidebar-primary-foreground: #0f0f0f;
+  --sidebar-accent: #f7f4ed;
+  --sidebar-accent-foreground: #0f0f0f;
+  --sidebar-border: #eceae4;
+  --sidebar-ring: #e0ff6e;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f0f0f;
+    --foreground: #ffffff;
+    --card: #121212;
+    --card-foreground: #ffffff;
+    --popover: #363635;
+    --popover-foreground: #ffffff;
+    --primary: #e0ff6e;
+    --primary-foreground: #0f0f0f;
+    --primary-hover: #b4cc58;
+    --secondary: #1a1a1a;
+    --secondary-foreground: #ffffff;
+    --muted: #121212;
+    --muted-foreground: #808080;
+    --accent: #e0ff6e;
+    --accent-foreground: #0f0f0f;
+    --destructive: #d00505;
+    --destructive-foreground: #ffffff;
+    --destructive-hover: #a00404;
+    --border: #333333;
+    --input: #333333;
+    --ring: #e0ff6e;
+    --error: #f57177;
+    --error-foreground: #f57177;
+    --error-background: #42090a;
+    --error-border: #6d0f15;
+    --warning: #fbbf24;
+    --warning-foreground: #fbbf24;
+    --warning-background: #451a03;
+    --warning-border: #78350f;
+    --success: #ffffff;
+    --success-foreground: #ffffff;
+    --success-background: #1a1a1a;
+    --success-border: #4f4f4e;
+    --sidebar: #0f0f0f;
+    --sidebar-foreground: #808080;
+    --sidebar-primary: #e0ff6e;
+    --sidebar-primary-foreground: #0f0f0f;
+    --sidebar-accent: #1a1a1a;
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: #333333;
+    --sidebar-ring: #e0ff6e;
+  }
+}

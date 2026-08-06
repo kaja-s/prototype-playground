@@ -38,7 +38,7 @@ export default function NavBar() {
   return (
     <div>
       <div className="flex items-center justify-between gap-4">
-        <h1 className="flex items-center gap-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-50">
+        <h1 className="flex items-center gap-2 text-2xl font-semibold tracking-tight text-foreground">
           <FlaskIcon className="text-black" />
           Prototype Playground
         </h1>
@@ -48,7 +48,7 @@ export default function NavBar() {
       <nav
         ref={navRef}
         aria-label="Sections"
-        className="relative mt-6 flex gap-6 border-b border-gray-200 dark:border-gray-800"
+        className="relative mt-6 flex gap-6 border-b border-border"
       >
         {tabs.map((tab, i) => {
           const active = i === activeIndex;
@@ -60,10 +60,10 @@ export default function NavBar() {
                 tabRefs.current[i] = el;
               }}
               aria-current={active ? "page" : undefined}
-              className={`-mb-px pb-3 text-sm font-medium transition-colors duration-150 ease-[var(--ease-out)] active:scale-[0.98] motion-reduce:transform-none ${
+              className={`-mb-px rounded-sm pb-3 text-sm font-medium transition-colors duration-150 ease-[var(--ease-out)] active:scale-[0.98] motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
                 active
-                  ? "text-gray-900 dark:text-gray-50"
-                  : "text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {tab.label}
@@ -72,7 +72,7 @@ export default function NavBar() {
         })}
         <span
           aria-hidden
-          className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full origin-left bg-gray-900 transition-transform duration-200 ease-[var(--ease-in-out)] motion-reduce:transition-none dark:bg-gray-50"
+          className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full origin-left bg-primary transition-transform duration-200 ease-[var(--ease-in-out)] motion-reduce:transition-none"
           style={{ transform: `translateX(${indicator.x}px) scaleX(${indicator.scale})` }}
         />
       </nav>

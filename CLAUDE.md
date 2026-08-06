@@ -39,13 +39,14 @@ Source lives under `src/`, with the `@/*` path alias resolving to `src/*` (see `
 src/
   app/
     layout.tsx              # root layout (html/body, fonts, metadata)
-    globals.css             # Tailwind import + shared CSS vars (--ease-out, --ease-in-out)
+    globals.css             # Tailwind import + design tokens import + shared CSS vars (--ease-out, --ease-in-out)
     registry.ts             # aggregates every developer's prototypes.ts into one list for the homepage
     (root)/                 # route group: homepage chrome, doesn't affect the URL
       layout.tsx            #   renders <NavBar /> + fades in page content
       page.tsx              #   "/" — the aggregated prototype list
-    (nds)/                  # route group: design system section
+    (cds)/                  # route group: codeplain design system section
       layout.tsx            #   renders <NavBar />
+      tokens.css             #   design tokens imported from the Figma "Theme" variable collection
       design-system/
         page.tsx            #   "/design-system"
     (templates)/            # route group: templates section
@@ -79,8 +80,14 @@ scripts/
 
 ### Route groups and shared chrome
 
-- Three top-level route groups organize shared sections without affecting the URL: `(root)` (`/`), `(nds)` (`/design-system`), `(templates)` (`/templates`). Each has its own `layout.tsx` rendering the shared `NavBar` (title + tabs with an animated sliding indicator) — because they're siblings rather than nested under one common group, `NavBar` remounts when navigating between these three sections (the sliding-indicator animation only plays within a section, not across them).
+- Three top-level route groups organize shared sections without affecting the URL: `(root)` (`/`), `(cds)` (`/design-system`), `(templates)` (`/templates`). `(cds)` stands for "codeplain design system." Each has its own `layout.tsx` rendering the shared `NavBar` (title + tabs with an animated sliding indicator) — because they're siblings rather than nested under one common group, `NavBar` remounts when navigating between these three sections (the sliding-indicator animation only plays within a section, not across them).
 - Individual developer prototype pages (`src/app/<name>/<slug>/page.tsx`) live outside all three route groups and render their own minimal chrome (a "Go Back" link) rather than sharing the tab nav.
+
+### Design tokens
+
+- `src/app/(cds)/tokens.css` defines CSS custom properties (`--background`, `--foreground`, `--primary`, `--primary-foreground`, `--secondary`, `--muted`, `--accent`, `--destructive`, `--border`, `--input`, `--ring`, `--error`, `--warning`, `--success`, `--sidebar-*`, `--radius-*`, etc.) imported from the codeplain design system Figma file's `Theme` variable collection — keep the two in sync if that collection changes. Light values live under `:root`; dark values under `@media (prefers-color-scheme: dark)`, mirroring the app's existing dark-mode convention.
+- `src/app/globals.css` imports `tokens.css` and maps every token into Tailwind's `@theme inline` block (`--color-primary: var(--primary)`, etc.), so semantic utilities like `bg-primary`, `text-foreground`, `border-border` are available directly — no `dark:` prefix needed, since the underlying variable already flips with `prefers-color-scheme`. This mirrors shadcn/ui's own CSS variable convention (the Figma file is the shadcn UI Kit), so shadcn component code can be dropped in without renaming variables.
+- Existing UI (`NavBar`, prototype list, etc.) still uses ad-hoc `gray-*`/`dark:` Tailwind utilities predating this token system — it hasn't been migrated to the semantic tokens.
 
 ### Local developer bootstrap
 
